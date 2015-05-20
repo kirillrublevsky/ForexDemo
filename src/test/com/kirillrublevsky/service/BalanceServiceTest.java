@@ -2,6 +2,7 @@ package com.kirillrublevsky.service;
 
 import com.kirillrublevsky.dao.BalanceDAO;
 import com.kirillrublevsky.model.Balance;
+import com.kirillrublevsky.service.impl.BalanceServiceImpl;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;

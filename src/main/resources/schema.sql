@@ -1,0 +1,22 @@
+DROP TABLE IF EXISTS balance;
+DROP TABLE IF EXISTS dollars;
+DROP TABLE IF EXISTS rate;
+
+
+CREATE TABLE balance (
+       balance_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
+     , amount DOUBLE NOT NULL
+);
+
+CREATE TABLE dollars (
+       dollars_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
+     , amount INT NOT NULL
+);
+
+CREATE TABLE rate (
+       rate_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
+     , rate DOUBLE NOT NULL
+);
+
+
+
