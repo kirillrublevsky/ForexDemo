@@ -1,7 +1,7 @@
 package com.kirillrublevsky.dao.impl;
 
 import com.kirillrublevsky.dao.BalanceDAO;
-import com.kirillrublevsky.model.Balance;
+import com.kirillrublevsky.dao.entity.Balance;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,13 +15,13 @@ public class BalanceDAOImpl implements BalanceDAO {
     public BalanceDAOImpl() {}
 
     @Override
-    public void updateBalance(Double amount) {
+    public void updateBalance(double amount) {
         Balance balance = (Balance) sessionFactory.getCurrentSession().load(Balance.class, 1);
         balance.setAmount(amount);
     }
 
     @Override
-    public Double getBalance(){
+    public double getBalance(){
         Balance balance = (Balance) sessionFactory.getCurrentSession().load(Balance.class, 1);
         return balance.getAmount();
     }

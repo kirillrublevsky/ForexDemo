@@ -1,0 +1,17 @@
+body {
+    color: gold;
+    background-color: cadetblue;
+    margin-left: 200px;
+}
+
+h1 {
+    color: orange;
+}
+
+h2 {
+    color: navajowhite;
+}
+
+span#trend {
+    color: green;
+}

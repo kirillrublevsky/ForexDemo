@@ -17,13 +17,13 @@ public class DollarsServiceImpl implements DollarsService {
 
     @Override
     @Transactional
-    public void updateDollars(Integer amount) {
+    public void updateDollars(double amount) {
         dollarsDAO.updateDollars(amount);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Integer getDollars() {
+    public double getDollars() {
         return dollarsDAO.getDollars();
     }
 

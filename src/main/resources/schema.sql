@@ -10,7 +10,7 @@ CREATE TABLE balance (
 
 CREATE TABLE dollars (
        dollars_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
-     , amount INT NOT NULL
+     , amount DOUBLE NOT NULL
 );
 
 CREATE TABLE rate (

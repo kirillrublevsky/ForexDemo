@@ -2,6 +2,9 @@ package com.kirillrublevsky.service;
 
 public interface ExchangeRateService {
 
-    void updateExchangeRate(Double rate);
-    Double getExchangeRate();
+    double getExchangeRate();
+    double generateExchangeRate();
+    double roundToCents(double rate);
 }
+
+

@@ -1,21 +1,21 @@
-package com.kirillrublevsky.model;
+package com.kirillrublevsky.dao.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "dollars")
-public class Dollars implements Serializable {
+@Table(name = "balance")
+public class Balance implements Serializable {
 
     @Id
-    @Column(name = "dollars_id")
+    @Column(name = "balance_id")
     @GeneratedValue
     private Integer id;
 
     @Column(name = "amount")
-    private Integer amount;
+    private Double amount;
 
-    public Dollars() {}
+    public Balance() {}
 
     public Integer getId() {
         return id;
@@ -25,22 +25,23 @@ public class Dollars implements Serializable {
         this.id = id;
     }
 
-    public Integer getAmount() {
+    public Double getAmount() {
         return amount;
     }
 
-    public void setAmount(Integer amount) {
+    public void setAmount(Double amount) {
         this.amount = amount;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Dollars)) return false;
+        if (!(o instanceof Balance)) return false;
 
-        Dollars dollars = (Dollars) o;
+        Balance balance = (Balance) o;
 
-        return amount.equals(dollars.amount) && id.equals(dollars.id);
+        if (!amount.equals(balance.amount)) return false;
+        return id.equals(balance.id);
 
     }
 
@@ -53,7 +54,7 @@ public class Dollars implements Serializable {
 
     @Override
     public String toString() {
-        return "Dollars{" +
+        return "Balance{" +
                 "id=" + id +
                 ", amount=" + amount +
                 '}';

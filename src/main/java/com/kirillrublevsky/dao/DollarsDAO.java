@@ -2,6 +2,6 @@ package com.kirillrublevsky.dao;
 
 public interface DollarsDAO {
 
-    void updateDollars(Integer amount);
-    Integer getDollars();
+    void updateDollars(double amount);
+    double getDollars();
 }

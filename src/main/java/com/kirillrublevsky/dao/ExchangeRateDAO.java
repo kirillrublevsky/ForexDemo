@@ -3,6 +3,7 @@ package com.kirillrublevsky.dao;
 public interface ExchangeRateDAO {
 
 
-    void updateExchangeRate(Double rate);
-    Double getExchangeRate();
+    void updateExchangeRate(double rate, int id);
+    double getExchangeRate();
+    double getOldExchangeRate();
 }

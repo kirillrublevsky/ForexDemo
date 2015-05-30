@@ -1,7 +1,7 @@
 package com.kirillrublevsky.service;
 
 import com.kirillrublevsky.dao.BalanceDAO;
-import com.kirillrublevsky.model.Balance;
+import com.kirillrublevsky.dao.entity.Balance;
 import com.kirillrublevsky.service.impl.BalanceServiceImpl;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;

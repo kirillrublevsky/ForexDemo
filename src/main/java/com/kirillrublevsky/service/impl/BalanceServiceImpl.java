@@ -16,13 +16,13 @@ public class BalanceServiceImpl implements BalanceService {
 
     @Override
     @Transactional
-    public void updateBalance(Double amount) {
+    public void updateBalance(double amount) {
         balanceDAO.updateBalance(amount);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Double getBalance() {
+    public double getBalance() {
         return balanceDAO.getBalance();
     }
 

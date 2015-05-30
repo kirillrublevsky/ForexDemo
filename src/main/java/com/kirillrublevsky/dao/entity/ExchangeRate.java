@@ -1,4 +1,4 @@
-package com.kirillrublevsky.model;
+package com.kirillrublevsky.dao.entity;
 
 import javax.persistence.*;
 
