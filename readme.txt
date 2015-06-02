@@ -18,6 +18,5 @@ buttons: "Buy USD" and "Sell USD".
 
 Technologies used in this project:
 Java 7, Spring, Hibernate, Spring MVC, H2 in-memory database,
-Maven, Git, Html.
+Maven, Git, HTML, CSS, JavaScript, jQuery.
 
-Project is not finished yet.
