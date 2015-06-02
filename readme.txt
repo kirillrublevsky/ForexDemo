@@ -20,3 +20,5 @@ Technologies used in this project:
 Java 7, Spring, Hibernate, Spring MVC, H2 in-memory database,
 Maven, Git, HTML, CSS, JavaScript, jQuery.
 
+Applications runs on TomCat by entering localhost:8080/ForexDemo
+
