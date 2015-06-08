@@ -62,39 +62,14 @@ public class ExchangeRateServiceImpl implements ExchangeRateService {
         if (currentRate >= oldRate){
             isGrowing = true;
         }
-        if(probability >= 0.51){
+        if(probability >= 0.5){
             isGrowing = !isGrowing;
         }
         return isGrowing;
     }
 
     private double getCoefficient(double probability){
-        double coefficient;
-        if (probability < 0.01){
-            coefficient = 1.228;
-        }
-        else if (probability < 0.03){
-            coefficient = 1.194;
-        }
-        else if (probability < 0.1){
-            coefficient = 1.165;
-        }
-        else if (probability < 0.3){
-            coefficient = 1.133;
-        }
-        else if (probability < 0.5){
-            coefficient = 1.084;
-        }
-        else if (probability < 0.7){
-            coefficient = 1.061;
-        }
-        else if (probability < 0.85){
-            coefficient = 1.047;
-        }
-        else{
-            coefficient = 1.016;
-        }
-        return coefficient;
+        return 1 + probability / 10;
     }
 
 }
