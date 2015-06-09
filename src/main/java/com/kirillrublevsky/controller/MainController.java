@@ -23,7 +23,7 @@ public class MainController {
     @Autowired
     private ExchangeRateService exchangeRateService;
 
-    @RequestMapping(value="/ForexDemo", method = RequestMethod.GET)
+    @RequestMapping(value="/", method = RequestMethod.GET)
     public ModelAndView loadPage() {
         double balance = balanceService.getBalance();
         double rate = exchangeRateService.getExchangeRate();
