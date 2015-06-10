@@ -38,7 +38,7 @@ public class MainController {
     }
 
     @RequestMapping(value = "/getRate", method = RequestMethod.GET)
-    public @ResponseBody String buyDollars() {
+    public @ResponseBody String getRate() {
         Double newRate = exchangeRateService.generateExchangeRate();
         return "{\"rate\" : " + newRate + "}";
     }
