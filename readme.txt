@@ -1,3 +1,5 @@
+Application is available online at http://forexdemo-kirillrublevsky.rhcloud.com/
+
 Project "ForexDemo" is created to emulate real Forex trading.
 It is supposed to allow you to buy/sell USD for UAH, store your
 balance in UAH, balance in USD and randomly generate exchange rate,
@@ -21,6 +23,3 @@ Java 7, Spring, Hibernate, Spring MVC, H2 in-memory database,
 Maven, Git, HTML, CSS, JavaScript, jQuery, Ajax.
 
 Test coverage is not finished yet.
-
-Application is available online at http://forexdemo-kirillrublevsky.rhcloud.com/
-
