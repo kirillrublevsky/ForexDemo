@@ -39,33 +39,48 @@ public class MainController {
 
     @RequestMapping(value = "/getRate", method = RequestMethod.GET)
     public @ResponseBody String getRate() {
-        Double newRate = exchangeRateService.generateExchangeRate();
+        double newRate = exchangeRateService.generateExchangeRate();
         return "{\"rate\" : " + newRate + "}";
+    }
+
+    @RequestMapping(value = "/reset", method = RequestMethod.GET)
+    public @ResponseBody String reset() {
+        double balance = 5000;
+        double dollars = 0;
+        double oldRate = 19.85;
+        double newRate = 20;
+
+        balanceService.updateBalance(balance);
+        dollarsService.updateDollars(dollars);
+        exchangeRateService.updateExchangeRate(oldRate, 1);
+        exchangeRateService.updateExchangeRate(newRate, 2);
+
+        return "{\"balance\" : " + balance + ", \"dollars\" : " + dollars +  ", \"rate\" : " + newRate + "}";
     }
 
     @RequestMapping(value = "/buyDollars", method = RequestMethod.POST)
     public @ResponseBody String buyDollars(@RequestParam(value = "amount", required = true) double amount) {
-        Double finalBalance = balanceService.getBalance() - amount * exchangeRateService.getExchangeRate();
-        Double finalDollarsAmount = dollarsService.getDollars() + amount;
+        double finalBalance = balanceService.getBalance() - amount * exchangeRateService.getExchangeRate();
+        double finalDollarsAmount = dollarsService.getDollars() + amount;
         finalBalance = exchangeRateService.roundToCents(finalBalance);
         finalDollarsAmount = exchangeRateService.roundToCents(finalDollarsAmount);
 
         balanceService.updateBalance(finalBalance);
         dollarsService.updateDollars(finalDollarsAmount);
 
-        return "{\"balance\" : " + finalBalance + ", \"dollars\" :" + finalDollarsAmount + "}";
+        return "{\"balance\" : " + finalBalance + ", \"dollars\" : " + finalDollarsAmount + "}";
     }
 
     @RequestMapping(value = "/sellDollars", method = RequestMethod.POST)
     public @ResponseBody String sellDollars(@RequestParam(value = "amount", required = true) double amount) {
-        Double finalBalance = balanceService.getBalance() + amount * exchangeRateService.getExchangeRate();
-        Double finalDollarsAmount = dollarsService.getDollars() - amount;
+        double finalBalance = balanceService.getBalance() + amount * exchangeRateService.getExchangeRate();
+        double finalDollarsAmount = dollarsService.getDollars() - amount;
         finalBalance = exchangeRateService.roundToCents(finalBalance);
         finalDollarsAmount = exchangeRateService.roundToCents(finalDollarsAmount);
 
         balanceService.updateBalance(finalBalance);
         dollarsService.updateDollars(finalDollarsAmount);
 
-        return "{\"balance\" : " + finalBalance + ", \"dollars\" :" + finalDollarsAmount + "}";
+        return "{\"balance\" : " + finalBalance + ", \"dollars\" : " + finalDollarsAmount + "}";
     }
 }

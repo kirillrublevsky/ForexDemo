@@ -26,6 +26,12 @@ public class ExchangeRateServiceImpl implements ExchangeRateService {
 
     @Override
     @Transactional
+    public void updateExchangeRate(double rate, int id) {
+        exchangeRateDAO.updateExchangeRate(rate, id);
+    }
+
+    @Override
+    @Transactional
     public double generateExchangeRate() {
         Double currentRate = exchangeRateDAO.getExchangeRate();
         Random random = new Random();

@@ -6,6 +6,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Forex Trader Demo</title>
+    <script> var baseURL = "${pageContext.request.contextPath}"</script>
     <script src="<c:url value="/resources/jquery-2.1.4.min.js" />"></script>
     <script src="<c:url value="/resources/script.js" />"></script>
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/style.css" />">
@@ -42,5 +43,9 @@
     <br />
     <p>You can buy now max: <span id="max">${max}</span> USD</p>
     <p id="console"></p>
+    <br />
+    <p>
+        <button id="reset">Reset application</button>
+    </p>
 </body>
 </html>

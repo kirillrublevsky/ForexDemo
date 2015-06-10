@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
     setInterval(function(){
-        $.get("/getRate", function (data) {
+        $.get((baseURL + "/getRate"), function (data) {
             var oldRate = $("#rate").text();
             var newRate = $.parseJSON(data).rate;
             var max = ($("#balance").text() / newRate).toFixed(2);
@@ -37,10 +37,12 @@ $(document).ready(function(){
             } else {
                 text = dollarsToBuy + " dollars successfully purchased for " +
                 (dollarsToBuy * rate).toFixed(2) + " UAH";
-                $.post("/buyDollars", {"amount": dollarsToBuy}, function (data) {
+                $.post((baseURL + "/buyDollars"), {"amount" : dollarsToBuy}, function (data) {
                     var JSONobject = $.parseJSON(data);
-                    $("#balance").text(JSONobject.balance);
+                    var balance = JSONobject.balance;
+                    $("#balance").text(balance);
                     $("#dollars").text(JSONobject.dollars);
+                    $("#max").text((balance / rate).toFixed(2));
                 })
             }
         }
@@ -68,15 +70,33 @@ $(document).ready(function(){
             } else {
                 text = dollarsToSell + " dollars successfully sold for " +
                 (dollarsToSell * $("#rate").text()).toFixed(2) + " UAH";
-                $.post("/sellDollars", {"amount" : dollarsToSell}, function (data) {
+                $.post((baseURL + "/sellDollars"), {"amount" : dollarsToSell}, function (data) {
                     var JSONobject = $.parseJSON(data);
-                    $("#balance").text(JSONobject.balance);
+                    var balance = JSONobject.balance;
+                    $("#balance").text(balance);
                     $("#dollars").text(JSONobject.dollars);
+                    $("#max").text((balance / $("#rate").text()).toFixed(2));
                 })
             }
         }
         $("#console").text(text);
         setTimeout(function(){$("#console").text("");}, 2000);
+    });
+
+    $("#reset").click(function(){
+        $.get((baseURL + "/reset"), function (data) {
+            var balance = $.parseJSON(data).balance;
+            var rate = $.parseJSON(data).rate;
+
+            $("#balance").text(balance);
+            $("#rate").text(rate);
+            $("#dollars").text($.parseJSON(data).dollars);
+            $("#max").text((balance / rate).toFixed(2));
+            $("#console").text("Application restarted");
+            $("#trend").text("is growing").css("color", "green");
+
+            setTimeout(function(){$("#console").text("");}, 2000);
+        })
     });
 
 });

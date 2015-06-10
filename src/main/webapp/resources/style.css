@@ -15,3 +15,14 @@ h2 {
 span#trend {
     color: green;
 }
+
+button#reset {
+    position: absolute;
+    top: 450px;
+    left: 350px;
+    color: #fff;
+    text-decoration: none;
+    user-select: none;
+    background: rgb(212,75,56);
+    padding: .7em 1.5em;
+}

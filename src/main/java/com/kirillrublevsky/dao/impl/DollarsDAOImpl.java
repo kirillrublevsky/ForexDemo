@@ -17,7 +17,8 @@ public class DollarsDAOImpl implements DollarsDAO {
     @Override
     public void updateDollars(double amount) {
         Dollars dollars = (Dollars) sessionFactory.getCurrentSession().load(Dollars.class, 1);
-        dollars.setAmount(amount);    }
+        dollars.setAmount(amount);
+    }
 
     @Override
     public double getDollars(){
