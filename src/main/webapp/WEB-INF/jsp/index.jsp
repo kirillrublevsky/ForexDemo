@@ -41,7 +41,7 @@
         </tr>
     </table>
     <br />
-    <p>You can buy now max: <span id="max">${max}</span> USD</p>
+    <p>You can buy max: <span id="max">${max}</span> USD</p>
     <p id="console"></p>
     <br />
     <p>

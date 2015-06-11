@@ -53,7 +53,7 @@ public class ExchangeRateServiceImpl implements ExchangeRateService {
     @Override
     public double roundToCents(double rate){
         BigDecimal roundedRate = new BigDecimal(rate);
-        roundedRate = roundedRate.setScale(2, BigDecimal.ROUND_CEILING);
+        roundedRate = roundedRate.setScale(2, BigDecimal.ROUND_FLOOR);
         return roundedRate.doubleValue();
     }
 

@@ -68,7 +68,6 @@ public class MainController {
         double finalBalance = balanceService.getBalance() - amount * exchangeRateService.getExchangeRate();
         double finalDollarsAmount = dollarsService.getDollars() + amount;
         finalBalance = exchangeRateService.roundToCents(finalBalance);
-        finalDollarsAmount = exchangeRateService.roundToCents(finalDollarsAmount);
 
         balanceService.updateBalance(finalBalance);
         dollarsService.updateDollars(finalDollarsAmount);
@@ -81,7 +80,6 @@ public class MainController {
         double finalBalance = balanceService.getBalance() + amount * exchangeRateService.getExchangeRate();
         double finalDollarsAmount = dollarsService.getDollars() - amount;
         finalBalance = exchangeRateService.roundToCents(finalBalance);
-        finalDollarsAmount = exchangeRateService.roundToCents(finalDollarsAmount);
 
         balanceService.updateBalance(finalBalance);
         dollarsService.updateDollars(finalDollarsAmount);
