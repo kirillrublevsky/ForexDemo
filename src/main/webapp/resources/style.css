@@ -12,10 +12,6 @@ h2 {
     color: navajowhite;
 }
 
-span#trend {
-    color: green;
-}
-
 button#reset {
     position: absolute;
     top: 450px;

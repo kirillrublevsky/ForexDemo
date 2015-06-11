@@ -27,12 +27,18 @@ public class MainController {
     public ModelAndView loadPage() {
         double balance = balanceService.getBalance();
         double rate = exchangeRateService.getExchangeRate();
+        String trend = "is falling";
+
+        if (exchangeRateService.isGrowing()){
+            trend = "is growing";
+        }
 
         ModelAndView model = new ModelAndView("index");
         model.addObject("balance", balance);
         model.addObject("rate", rate);
         model.addObject("dollars", dollarsService.getDollars());
-        model.addObject("max", balance / rate);
+        model.addObject("max", exchangeRateService.roundToCents(balance / rate));
+        model.addObject("trend", trend);
 
         return model;
     }

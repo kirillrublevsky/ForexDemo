@@ -25,6 +25,12 @@ public class ExchangeRateServiceImpl implements ExchangeRateService {
     }
 
     @Override
+    @Transactional(readOnly = true)
+    public boolean isGrowing() {
+        return exchangeRateDAO.getExchangeRate() >= exchangeRateDAO.getOldExchangeRate();
+    }
+
+    @Override
     @Transactional
     public void updateExchangeRate(double rate, int id) {
         exchangeRateDAO.updateExchangeRate(rate, id);

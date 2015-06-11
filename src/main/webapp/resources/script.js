@@ -1,5 +1,12 @@
 $(document).ready(function(){
 
+    var trend = $("#trend");
+    if(trend.text() == "is growing"){
+        trend.css("color", "green");
+    } else {
+        trend.css("color", "red");
+    }
+
     setInterval(function(){
         $.get((baseURL + "/getRate"), function (data) {
             var oldRate = $("#rate").text();
@@ -8,7 +15,7 @@ $(document).ready(function(){
             $("#rate").text(newRate);
             $("#max").text(max);
 
-            if(newRate > oldRate){
+            if (newRate >= oldRate){
                 $("#trend").text("is growing").css("color", "green");
             } else {
                 $("#trend").text("is falling").css("color", "red");

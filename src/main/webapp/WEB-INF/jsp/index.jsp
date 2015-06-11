@@ -15,7 +15,7 @@
     <h1>Forex Trader Demo</h1>
     <h2>Balance: <span id="balance">${balance}</span> UAH</h2>
     <h2>Dollars purchased: <span id="dollars">${dollars}</span> USD</h2>
-    <h2>Exchange rate: <span id="rate">${rate}</span> UAH/USD     <span id="trend">is growing</span></h2>
+    <h2>Exchange rate: <span id="rate">${rate}</span> UAH/USD     <span id="trend">${trend}</span></h2>
     <br />
     <br />
     <table>
