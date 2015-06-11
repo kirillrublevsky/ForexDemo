@@ -11,7 +11,7 @@ $(document).ready(function(){
         $.get((baseURL + "/getRate"), function (data) {
             var oldRate = $("#rate").text();
             var newRate = $.parseJSON(data).rate;
-            var max = ($("#balance").text() / newRate).toFixed(2);
+            var max = Math.floor($("#balance").text() / newRate);
             $("#rate").text(newRate);
             $("#max").text(max);
 
@@ -27,7 +27,7 @@ $(document).ready(function(){
         var text = "";
         var dollarsToBuy = $("#dollarsToBuy").val();
         var rate = $("#rate").text();
-        var maxToBuy = ($("#balance").text() / rate).toFixed(2);
+        var maxToBuy = Math.floor($("#balance").text() / rate);
 
         if (isNaN(dollarsToBuy)) {
             text = "Wrong input, please type a number";
@@ -49,7 +49,7 @@ $(document).ready(function(){
                     var balance = JSONobject.balance;
                     $("#balance").text(balance);
                     $("#dollars").text(JSONobject.dollars);
-                    $("#max").text((balance / rate).toFixed(2));
+                    $("#max").text(Math.floor(balance / rate));
                 })
             }
         }
@@ -82,7 +82,7 @@ $(document).ready(function(){
                     var balance = JSONobject.balance;
                     $("#balance").text(balance);
                     $("#dollars").text(JSONobject.dollars);
-                    $("#max").text((balance / $("#rate").text()).toFixed(2));
+                    $("#max").text(Math.floor(balance / $("#rate").text()));
                 })
             }
         }
@@ -98,7 +98,7 @@ $(document).ready(function(){
             $("#balance").text(balance);
             $("#rate").text(rate);
             $("#dollars").text($.parseJSON(data).dollars);
-            $("#max").text((balance / rate).toFixed(2));
+            $("#max").text(Math.floor(balance / rate));
             $("#console").text("Application restarted");
             $("#trend").text("is growing").css("color", "green");
 

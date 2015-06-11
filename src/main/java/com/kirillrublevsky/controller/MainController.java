@@ -27,8 +27,8 @@ public class MainController {
     public ModelAndView loadPage() {
         double balance = balanceService.getBalance();
         double rate = exchangeRateService.getExchangeRate();
-        String trend = "is falling";
 
+        String trend = "is falling";
         if (exchangeRateService.isGrowing()){
             trend = "is growing";
         }
@@ -37,7 +37,7 @@ public class MainController {
         model.addObject("balance", balance);
         model.addObject("rate", rate);
         model.addObject("dollars", dollarsService.getDollars());
-        model.addObject("max", exchangeRateService.roundToCents(balance / rate));
+        model.addObject("max", (int) (balance / rate));
         model.addObject("trend", trend);
 
         return model;
@@ -45,8 +45,7 @@ public class MainController {
 
     @RequestMapping(value = "/getRate", method = RequestMethod.GET)
     public @ResponseBody String getRate() {
-        double newRate = exchangeRateService.generateExchangeRate();
-        return "{\"rate\" : " + newRate + "}";
+        return "{\"rate\" : " + exchangeRateService.generateExchangeRate() + "}";
     }
 
     @RequestMapping(value = "/reset", method = RequestMethod.GET)
